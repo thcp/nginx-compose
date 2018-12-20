@@ -1,0 +1,12 @@
+version: '3'
+services:
+  localhost:
+    image: nginx:1.14.2-alpine
+    volumes:
+      - ./conf/nginx/conf.d:/etc/nginx/conf.d
+      - ./conf/nginx/ssl_conf:/etc/nginx/ssl_conf
+      - ./data/ssl/sites/localhost:/etc/nginx/ssl_certs/localhost
+      - ./data/www/localhost:/var/www/localhost
+    ports:
+      - "80:80"
+      - "443:443"
