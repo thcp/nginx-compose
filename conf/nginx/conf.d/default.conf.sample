@@ -17,6 +17,6 @@ server {
   ssl_dhparam /etc/nginx/ssl_conf/ssl-dhparams.pem;
   
   location / {
-      root /var/www/;
+      root /var/www/DOMAIN/;
   }
 }
