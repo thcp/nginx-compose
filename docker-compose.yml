@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    image: "${DOCKER_IMAGE}:${DOCKER_TAG}"
+    volumes:
+      - ./conf/nginx/conf.d:/etc/nginx/conf.d
+      - ./conf/nginx/ssl_conf:/etc/nginx/ssl_conf
+      - "./data/ssl/sites/${DOMAIN}:/etc/nginx/ssl_certs/${DOMAIN}"
+      - "./data/www/${DOMAIN}:/var/www/${DOMAIN}"
+    ports:
+      - "80:80"
+      - "443:443"
