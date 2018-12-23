@@ -1,6 +1,7 @@
 version: '3'
 services:
-  web:
+  nginx:
+    container_name: nginx
     image: "${DOCKER_IMAGE}:${DOCKER_TAG}"
     volumes:
       - ./conf/nginx/conf.d:/etc/nginx/conf.d
