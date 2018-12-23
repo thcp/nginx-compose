@@ -1,20 +1,20 @@
-
 env:
-  - DOCKER_COMPOSE_VERSION=1.23.1
-
+- DOCKER_COMPOSE_VERSION=1.23.1
 services:
-  - docker
-
+- docker
 before_install:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce  
-
-
+- sudo rm /usr/local/bin/docker-compose
+- curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname
+  -s`-`uname -m` > docker-compose
+- chmod +x docker-compose
+- sudo mv docker-compose /usr/local/bin
+- curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+- sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu
+  $(lsb_release -cs) stable"
+- sudo apt-get update
+- sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 script:
-  - make build
+- make build
+notifications:
+  slack:
+    secure: rsWvJLmPQ2JunUGhv3YJsjbzEWmjbQHvlSuQbTR8MBWDRxmp0GPTmyBRvNaPMe/P9ms/HaeF0ec5y+b+bDbiEFqJWZSem2KosI3mFCxjD2/tOCLTHKLVW1NQOhqLdl3s0JOLRZbYsED+bRbpmW1HVx+kmKu6ryjBJbpLtYj7KFS5rgFyFYDuZrES6yuDNMSfBZjV75naHFn7KboRKnZeJ2BTR24qI2AmuWjQ3MKWAuswmHJA9U8UFb4WCk/60cyUGk1AdxTBJ5CJgwap2hf2AWS0TFyDCTc0IEb2QLRNF1lY1raCoEu9l6w6G5v8Fu4uZoJp3METOPqAJlqVrU612WmymdIxYNPD5jKF1gqBYbjxuH1P+peZ+YF5qV22w6YPfeR+EW4n1yUY/dPm+evXqJKyWBv39erx+mYTEdG+Z1Mg1YezicAsmfjDfuPZMu9HWBMFJUG7+0GAVPUhegKZQ328jWRpkWtFLIEHWMEUctfMFqg9lfq1pS7Z8fUm2Wnds3sUbMkDyaSQEwJXZqYnVks4BnZORzeXHoEj/USh21k1mclNL9k1thP2fadsHw64+E7hMfV9XZjD/JopUzeJGJvqk6B+Vmdqv46gs26aWWWgnPX5QFcNvtu7RHVKcZ9eNPPR+f0QHzaUhfX0TZ5YPMG9cDfNkO0KBP46vNXzI/4=
