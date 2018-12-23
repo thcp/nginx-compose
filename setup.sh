@@ -38,7 +38,7 @@ Naming convention to follow:
 read -p "press any key to continue...
 "
 
-echo "make sure to check your grade on SSL Labs, I bet a beer that you have A+
+echo "make sure to check your grade on SSL Labs, I bet a beer that you will get an A+
 https://www.ssllabs.com/ssltest/analyze.html?d=$DOMAIN
 "
 docker-compose up -d 
