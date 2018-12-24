@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   nginx:
     container_name: nginx
@@ -11,3 +11,10 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external:
+      name: proxy
